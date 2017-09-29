@@ -6,7 +6,7 @@ public class Slingshot : MonoBehaviour {
 
     public GameObject launchPoint;
     public GameObject prefabProjectile;
-    public bool -----------;
+    public bool ______________;
     public Vector3 launchPos;
     public GameObject projectile;
     public bool aimingMode;
@@ -35,8 +35,8 @@ public class Slingshot : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         {
             aimingMode = false;
-            projectile.rigidbody.isKinematic = false;
-            projectile.rigidbody.velocity = -mouseDelta * velocityMult;
+			projectile.GetComponent<Rigidbody>().isKinematic = false;
+			projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
             projectile = null;
         }
 	}
@@ -66,6 +66,6 @@ public class Slingshot : MonoBehaviour {
         aimingMode = true;
         projectile = Instantiate(prefabProjectile) as GameObject;
         projectile.transform.position = launchPos;
-        projectile.rigidbody.isKinematic = true;
+		projectile.GetComponent<Rigidbody>().isKinematic = true;
     }
 }
